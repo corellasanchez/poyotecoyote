@@ -41,13 +41,13 @@ public class playerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(touchStart){
-            // Vector2 offset = pointB - pointA;
+        if(touchStart){ 
             Vector2 offset = pointA - pointB;
             Vector2 direction = Vector2.ClampMagnitude(offset, 1.0f);
             moveCharacter(direction * -1);
             // circle.transform.position = new Vector2(pointA.x + direction.x, pointA.y + direction.y) * -1;
         }else{
+            rb2d.velocity = Vector2.zero;
             // circle.GetComponent<SpriteRenderer>().enabled = false;
             // outerCircle.GetComponent<SpriteRenderer>().enabled = false;
         }
