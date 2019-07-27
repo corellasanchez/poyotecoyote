@@ -527,7 +527,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee22b807d53434791963fbc01ed6d7ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 20
   countText: {fileID: 1202265169}
   winText: {fileID: 1497562580}
   characterInInQuicksand: 0
@@ -589,12 +589,12 @@ SpriteRenderer:
   m_SortingLayerID: 323096641
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f57fa7c8c63204bd0a2dbd32028b3b28, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bb9cca911baf544f8814c17ef0c74ce8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.34, y: 5.36}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
