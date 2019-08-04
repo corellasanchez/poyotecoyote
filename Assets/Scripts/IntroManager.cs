@@ -11,6 +11,8 @@ public class IntroManager : MonoBehaviour
     private float fadeSpeed;
     public Canvas mainCanvas;
     public GameObject subsText;
+    public AudioSource introMusic;
+
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +52,7 @@ public class IntroManager : MonoBehaviour
             subsText.GetComponent<Text>().text = "";
             StartCoroutine(Fadeout(images[i], fadeSpeed));
         }
+        introMusic.Stop();
     }
 
     void InicializeScene()
@@ -82,7 +85,7 @@ public class IntroManager : MonoBehaviour
 
         string[,] subs3 = new string[,]{
              { "La única esperanza del reino"  , "3"},
-             { "es un revelde"  , "3" },
+             { "es un rebelde"  , "3" },
              { "que vive en las montañas.", "3"},
          };
 
