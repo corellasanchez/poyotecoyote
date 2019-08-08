@@ -17,6 +17,7 @@ public class playerController : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        rb2d.freezeRotation = true;
         count = 0;
         setCountText();
         winText.text =  "" ;
@@ -54,6 +55,7 @@ public class playerController : MonoBehaviour
     }
 
     void moveCharacter(Vector2 direction){
+        // rb2d.Translate(direction * speed);
         rb2d.AddForce(direction * speed * Time.deltaTime);
     }
 
