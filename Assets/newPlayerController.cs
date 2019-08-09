@@ -31,7 +31,8 @@ public class newPlayerController : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
 
         if (moving()){
-            transform.Translate(x, y, speed);
+            transform.Translate(x, y, 0);
+            // speed
         }else{
 
         }
