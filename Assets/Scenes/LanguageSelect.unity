@@ -630,7 +630,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Pulse aqui para comenzar
+  m_Text: Select your language
 --- !u!222 &1533737620
 CanvasRenderer:
   m_ObjectHideFlags: 0

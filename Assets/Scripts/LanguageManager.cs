@@ -15,7 +15,8 @@ public class LanguageManager : MonoBehaviour
 
     void Start()
     {
-        selectedLanguage = GetSavedLanguage();
+
+        selectedLanguage = I18n.GetPreferredLanguage();
 
         if (selectedLanguage == "")
         {
@@ -39,43 +40,7 @@ public class LanguageManager : MonoBehaviour
        
     }
 
-    void ChangeLanguage(string language)
-    {
-        Debug.Log("You have clicked the button " + language);
-
-        // save the language to preferences
-        try
-        {
-            PlayerPrefs.SetString("language", language);
-            SceneManager.LoadScene("Title");
-        }
-
-        // handle the error
-        catch (System.Exception err)
-        {
-            Debug.Log("Error trying to save the language: " + err);
-        }
-    }
-
-    private string GetSavedLanguage()
-    {
-
-        string language = "";
-        // save the language to preferences
-        try
-        {
-            language = PlayerPrefs.GetString("language");
-        }
-
-        // handle the error
-        catch (System.Exception err)
-        {
-            Debug.Log("Error triying to get the language: " + err);
-        }
-
-        return language;
-    }
-
+    
     //function to blink the text
     public IEnumerator BlinkText()
     {
@@ -88,5 +53,12 @@ public class LanguageManager : MonoBehaviour
             titleText.text = "Elige tu idioma";
             yield return new WaitForSeconds(3f);
         }
+    }
+
+    // Change the global language for the game
+    private void ChangeLanguage(string language)
+    {
+        I18n.ChangePreferredLanguage(language);
+        SceneManager.LoadScene("Title");
     }
 }

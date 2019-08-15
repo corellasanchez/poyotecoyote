@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class IntroManager : MonoBehaviour
@@ -19,6 +20,27 @@ public class IntroManager : MonoBehaviour
     {
         InicializeScene();
         StartCoroutine(PlayIntro());
+    }
+
+    private void Update()
+    {
+        if (Input.touches.Length > 0 || Input.GetMouseButtonDown(0))
+        {
+            skipIntro();
+        }
+    }
+
+    private void skipIntro()
+    {
+            try
+            {
+                PlayerPrefs.SetInt("oldPlayer", 1);
+                SceneManager.LoadScene("SampleScene");
+            }
+            catch (System.Exception err)
+            {
+                Debug.Log("Error triying skip the intro " + err);
+            }
     }
 
     // You can use it for multiple images, just pass that image.
@@ -85,8 +107,7 @@ public class IntroManager : MonoBehaviour
 
         string[,] subs3 = new string[,]{
              { "La única esperanza del reino"  , "3"},
-             { "es un rebelde"  , "3" },
-             { "que vive en las montañas.", "3"},
+             { "es un pollo rebelde ...."  , "3" },
          };
 
         subtitles.Add(subs3);

@@ -1,64 +1,44 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TitleManager : MonoBehaviour
 {
     public Text titleText;
-    private Image darkTitle;
-    private Image corlorTitle;
-    private Button newButton;
-    private Button continueButton;
-    public Canvas mainCanvas;
-
-    private bool menuIsActive;
-    private bool isChanging;
 
     // Start is called before the first frame update
     void Start()
     {
-        menuIsActive = false;
-        isChanging = false;
-        darkTitle = mainCanvas.transform.Find("title1").GetComponent<Image>();
-        corlorTitle = mainCanvas.transform.Find("title2").GetComponent<Image>();
-        newButton = mainCanvas.transform.Find("New").GetComponent<Button>();
-        continueButton = mainCanvas.transform.Find("Continue").GetComponent<Button>();
-
-    darkTitle.transform.gameObject.SetActive(true);
-        corlorTitle.transform.gameObject.SetActive(false);
         StartCoroutine(BlinkText());
     }
 
-    // Prints number of fingers touching the screen
+    // Load a new game or a saved game.
     void Update()
     {
-
-        if(Input.touches.Length > 0)
+        if (Input.touches.Length > 0 || Input.GetMouseButtonDown(0))
         {
-            //  titleText.text = "User has " + Input.touches.Length;
-            if (!isChanging) { 
-                StartCoroutine(ToggleMenu());
+            int oldPlayer = 0;
+
+            try
+            {
+                oldPlayer = PlayerPrefs.GetInt("oldPlayer");
+            }
+            catch (System.Exception err)
+            {
+                Debug.Log("Error triying to get the language: " + err);
+            }
+
+            if (oldPlayer == 0)
+            {   // Show intro to the new player
+                SceneManager.LoadScene("Intro");
+            }
+            else
+            {
+                SceneManager.LoadScene("SampleScene");
             }
         }
-      
-    }
-
-    IEnumerator ToggleMenu()
-    {
-        isChanging = true;
-
-        if (!menuIsActive)
-        {
-            darkTitle.transform.gameObject.SetActive(false);
-            corlorTitle.transform.gameObject.SetActive(true);
-            titleText.transform.gameObject.SetActive(false);
-            newButton.transform.gameObject.SetActive(true);
-            continueButton.transform.gameObject.SetActive(true);
-        }
-
-        yield return new WaitForSeconds(1);
-        isChanging = false;
     }
 
     //function to blink the text
@@ -72,7 +52,7 @@ public class TitleManager : MonoBehaviour
             //display blank text for 0.5 seconds
             yield return new WaitForSeconds(.5f);
 
-            titleText.text = "Presione aqui para comenzar";
+            titleText.text = I18n.Fields["pressToContinue"];
             yield return new WaitForSeconds(.5f);
         }
     }

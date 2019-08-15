@@ -1,0 +1,2 @@
+﻿pressToContinue=Tap to start 
+skipIntro=Skip
