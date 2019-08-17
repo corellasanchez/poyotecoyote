@@ -14,7 +14,6 @@ public class IntroManager : MonoBehaviour
     public GameObject subsText;
     public AudioSource introMusic;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -24,10 +23,10 @@ public class IntroManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.touches.Length > 0 || Input.GetMouseButtonDown(0))
-        {
-            skipIntro();
-        }
+        //if (Input.touches.Length > 0 || Input.GetMouseButtonDown(0))
+        //{
+        //    skipIntro();
+        //}
     }
 
     private void skipIntro()
@@ -39,7 +38,7 @@ public class IntroManager : MonoBehaviour
             }
             catch (System.Exception err)
             {
-                Debug.Log("Error triying skip the intro " + err);
+            Debug.Log("Error triying skip the intro " + err);
             }
     }
 
@@ -74,7 +73,18 @@ public class IntroManager : MonoBehaviour
             subsText.GetComponent<Text>().text = "";
             StartCoroutine(Fadeout(images[i], fadeSpeed));
         }
-        introMusic.Stop();
+        
+
+        try
+        {
+            introMusic.Stop();
+            PlayerPrefs.SetInt("oldPlayer", 1);
+            SceneManager.LoadScene("SampleScene");
+        }
+        catch (System.Exception err)
+        {
+            Debug.Log("Error triying skip the intro " + err);
+        }
     }
 
     void InicializeScene()
@@ -88,26 +98,26 @@ public class IntroManager : MonoBehaviour
         {
             images.Add(mainCanvas.transform.Find(imageName).GetComponent<Image>());
         }
-
+        
         string[,]  subs1  = new string[,]{
-             { "En el reino de los poyotes"  , "2"},
-             { "la vida siempre fue"  , "2" },
-             { "feliz y apacible.", "3"},
+             { I18n.Fields["intro1"], "2"},
+             { I18n.Fields["intro2"], "2" },
+             { I18n.Fields["intro3"], "3"},
          };
 
         subtitles.Add(subs1);
 
         string[,] subs2 = new string[,]{
-             { "Hasta que la barrera protectora"  , "2"},
-             { "que defendía el reino, desaparecio", "3"},
-              { "los Coyotes comenzaron a atacar el sin piedad...", "3"},
+             { I18n.Fields["intro4"], "2"},
+             { I18n.Fields["intro5"], "3"},
+              { I18n.Fields["intro6"], "3"},
          };
 
         subtitles.Add(subs2);
 
         string[,] subs3 = new string[,]{
-             { "La única esperanza del reino"  , "3"},
-             { "es un pollo rebelde ...."  , "3" },
+             { I18n.Fields["intro7"], "3"},
+             { I18n.Fields["intro8"], "3" },
          };
 
         subtitles.Add(subs3);

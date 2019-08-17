@@ -29,7 +29,7 @@ public class TitleManager : MonoBehaviour
             {
                 Debug.Log("Error triying to get the language: " + err);
             }
-
+            
             if (oldPlayer == 0)
             {   // Show intro to the new player
                 SceneManager.LoadScene("Intro");

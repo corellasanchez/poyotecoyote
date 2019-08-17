@@ -1,2 +1,14 @@
 ﻿pressToContinue=Tap to start 
 skipIntro=Skip
+intro1=In the kingdom of the poyotes
+intro2=life was always
+intro3=happy and gentle
+intro4=Until the protective barrier that protect the kingdom
+intro5=just disappeared
+intro6=the Coyotes began to attack without mercy
+intro7=The only hope of the kingdom
+intro8=is a rebel Poyote...
+
+
+
+

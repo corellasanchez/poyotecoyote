@@ -166,6 +166,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCanvas: {fileID: 1257472092}
   subsText: {fileID: 1631877124}
+  skipButton: {fileID: 0}
+  skipText: {fileID: 0}
   introMusic: {fileID: 1655660746}
 --- !u!1 &809488279
 GameObject:
