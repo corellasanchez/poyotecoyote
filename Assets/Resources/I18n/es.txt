@@ -1,0 +1,10 @@
+﻿pressToContinue=Presione aqui para comenzar  
+skipIntro=Omitir
+intro1=En el reino de los poyotes
+intro2=la vida siempre fue
+intro3=feliz y apacible
+intro4=Hasta que la barrera protectora
+intro5=que defendía el reino, desaparecio
+intro6=los Coyotes comenzaron a atacar el sin piedad
+intro7=La única esperanza del reino
+intro8=es un poyote rebelde...
