@@ -13,6 +13,7 @@ public class playerController : MonoBehaviour
     private bool touchStart = false;
     private Vector2 pointA;
     private Vector2 pointB;
+    public Joystick joystick;
 
     void Start()
     {
@@ -24,7 +25,10 @@ public class playerController : MonoBehaviour
     }
 
     void Update(){
-        if(Input.GetMouseButtonDown(0)){
+
+       
+
+        if (Input.GetMouseButtonDown(0)){
             pointA = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.z));
             // circle.transform.position = pointA * -1;
             // outerCircle.transform.position = pointA * -1;
@@ -42,7 +46,9 @@ public class playerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(touchStart){ 
+
+        Debug.Log(joystick.Horizontal);
+        if (touchStart){ 
             Vector2 offset = pointA - pointB;
             Vector2 direction = Vector2.ClampMagnitude(offset, 1.0f);
             moveCharacter(direction * -1);

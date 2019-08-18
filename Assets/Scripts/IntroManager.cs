@@ -34,7 +34,7 @@ public class IntroManager : MonoBehaviour
             try
             {
                 PlayerPrefs.SetInt("oldPlayer", 1);
-                SceneManager.LoadScene("SampleScene");
+                SceneManager.LoadScene("MovementTest");
             }
             catch (System.Exception err)
             {
@@ -79,7 +79,7 @@ public class IntroManager : MonoBehaviour
         {
             introMusic.Stop();
             PlayerPrefs.SetInt("oldPlayer", 1);
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("MovementTest");
         }
         catch (System.Exception err)
         {

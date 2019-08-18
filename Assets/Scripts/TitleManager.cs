@@ -36,7 +36,7 @@ public class TitleManager : MonoBehaviour
             }
             else
             {
-                SceneManager.LoadScene("SampleScene");
+                SceneManager.LoadScene("MovementTest");
             }
         }
     }
